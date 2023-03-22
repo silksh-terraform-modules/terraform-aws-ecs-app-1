@@ -102,4 +102,28 @@ resource "aws_ecs_task_definition" "this" {
       }
     }
   }
+
+  dynamic "volume" {
+    for_each = length(var.efs_volume_name_2) > 0 ? [1] : []
+    content {
+      name = var.efs_volume_name_2
+
+      dynamic "efs_volume_configuration" {
+        for_each = length(var.efs_file_system_id_2) > 0 ? [1] : []
+
+        content {
+          file_system_id = var.efs_file_system_id_2
+          transit_encryption = "ENABLED"
+
+          dynamic "authorization_config" {
+            for_each = length(var.efs_access_point_id_2) > 0 ? [1] : []
+
+            content {
+              access_point_id = var.efs_access_point_id_2
+            }
+          }
+        }
+      }
+    }
+  }
 }

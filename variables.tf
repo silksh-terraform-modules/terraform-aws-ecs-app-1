@@ -104,6 +104,18 @@ variable "efs_access_point_id" {
   default = ""
 }
 
+variable "efs_volume_name_2" {
+  default = ""
+}
+
+variable "efs_file_system_id_2" {
+  default = ""
+}
+
+variable "efs_access_point_id_2" {
+  default = ""
+}
+
 
 variable "cluster_id" {
   default = ""
