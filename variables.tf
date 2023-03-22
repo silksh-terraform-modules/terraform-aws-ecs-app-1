@@ -277,3 +277,13 @@ variable "host_path" {
   default = ""
   description = "local path on host (volume mounted in fstab or local directory)"
 }
+
+variable "volume_name_2" {
+  default = ""
+  description = "volume name, same as sourceVolume in mount_points"
+}
+
+variable "host_path_2" {
+  default = ""
+  description = "local path on host (volume mounted in fstab or local directory)"
+}

@@ -75,7 +75,14 @@ resource "aws_ecs_task_definition" "this" {
     content {
       name = var.volume_name
       host_path = var.host_path
-      
+    }
+  }
+
+  dynamic "volume" {
+    for_each = length(var.volume_name_2) > 0 ? [1] : []
+    content {
+      name = var.volume_name_2
+      host_path = var.host_path_2
     }
   }
 
